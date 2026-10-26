@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fffaf0">
+<title>遊戲介紹｜失智同理卡牌</title>
+<meta name="description" content="認識失智同理卡牌的 A、B 兩種遊玩方式、準備工作、遊戲流程與獲勝方式。">
+<link rel="icon" href="assets/sun.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script src="game.js" defer></script>
+</head>
+<body class="game-page">
+<a class="skip" href="#main">跳至主要內容</a>
+<main id="main">
+<section class="game-hero wrap" aria-labelledby="game-title">
+  <p class="eyebrow"><span class="tiny-sun" aria-hidden="true">✦</span> 一起開始遊玩</p>
+  <h1 id="game-title">遊戲介紹</h1>
+  <p class="game-lede">先看懂遊戲想帶我們走進的日常，再選擇適合你的遊玩方式。</p>
+  <div class="game-hero-doodle" aria-hidden="true"><span>✦</span><span>☁</span><span>✿</span></div>
+</section>
+
+<section class="video-section section" aria-labelledby="video-title">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow small">先看一段說明</p>
+      <h2 id="video-title">從影片認識遊戲</h2>
+      <p>這裡會放置遊戲介紹與帶玩說明，讓第一次接觸的玩家更快進入情境。</p>
+    </div>
+    <!-- 未來將 .video-placeholder 替換為 YouTube iframe，例如：<iframe src="https://www.youtube.com/embed/影片ID" ...></iframe> -->
+    <div class="video-placeholder" aria-label="YouTube 說明影片預留位置">
+      <div class="video-frame">
+        <span class="play-mark" aria-hidden="true">▶</span>
+        <div><strong>YouTube 說明影片</strong><small>影片上傳後，將連結嵌入這裡</small></div>
+      </div>
+      <p class="video-note">目前為影片預留位置</p>
+    </div>
+  </div>
+</section>
+
+<section class="rules-section section" id="rules" aria-labelledby="rules-title">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow small">接著了解遊玩方式</p>
+      <h2 id="rules-title">完整遊戲規則</h2>
+      <p>選擇一種模式，依序查看事前準備、遊戲流程與獲勝方式。</p>
+    </div>
+    <div class="rules-tabs" role="tablist" aria-label="遊戲模式切換">
+      <button class="rule-tab is-active" id="tab-a" type="button" role="tab" aria-selected="true" aria-controls="panel-a" tabindex="0"><span class="badge">A</span><span><strong>日常任務挑戰</strong><small>自主遊玩</small></span></button>
+      <button class="rule-tab" id="tab-b" type="button" role="tab" aria-selected="false" aria-controls="panel-b" tabindex="-1"><span class="badge peach">B</span><span><strong>引導同理體驗</strong><small>帶領討論</small></span></button>
+    </div>
+
+    <article class="rule-panel is-active" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
+      <div class="rule-panel-heading"><span class="badge">A</span><div><p class="eyebrow small">模式 A</p><h3>日常任務挑戰</h3><p>在有限資源下完成生活任務，從每一次選擇感受不同的處境。</p></div></div>
+      <div class="rule-grid">
+        <section class="rule-step"><span class="step-number">01</span><div><h4>事前準備</h4><p>準備遊戲所需的卡牌、標記物與遊戲圖紙，依照圖紙上的配置放置。需要圖紙時，可前往<a class="download-link" href="downloads.html">檔案下載</a>頁面取得。</p><p class="rule-note">正式牌組內容與數值，請以之後公布的遊戲說明書為準。</p></div></section>
+        <section class="rule-step"><span class="step-number">02</span><div><h4>遊戲流程</h4><ol><li>依序抽取或翻開當回合需要的任務與情境卡。</li><li>閱讀卡面資訊，確認目前遇到的限制與可用資源。</li><li>討論並選擇行動，必要時使用支持牌協助完成任務。</li><li>記錄這次選擇，將遊戲繼續進行到流程結束。</li></ol><p class="rule-note">回合順序、牌組數量與能量設定將依正式規則補充。</p></div></section>
+        <section class="rule-step"><span class="step-number">03</span><div><h4>獲勝方式</h4><p>在遊戲結束前完成指定的生活任務，並依規則計算團隊的完成成果。除了結果，也邀請玩家分享過程中最困難與最有幫助的選擇。</p><p class="rule-note">勝利門檻與計分方式待正式版本確認。</p></div></section>
+      </div>
+    </article>
+
+    <article class="rule-panel" id="panel-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+      <div class="rule-panel-heading"><span class="badge peach">B</span><div><p class="eyebrow small">模式 B</p><h3>引導同理體驗</h3><p>在帶領者的引導下進入情境，透過分享與討論練習理解與回應。</p></div></div>
+      <div class="rule-grid">
+        <section class="rule-step"><span class="step-number">01</span><div><h4>事前準備</h4><p>由帶領者準備卡牌、遊戲圖紙與引導空間，讓參與者圍坐並能看見牌面。活動所需的圖紙可從<a class="download-link" href="downloads.html">檔案下載</a>頁面取得。</p><p class="rule-note">可依參與人數與活動時間，彈性安排分享方式。</p></div></section>
+        <section class="rule-step"><span class="step-number">02</span><div><h4>遊戲流程</h4><ol><li>帶領者說明當次活動的情境與遊玩方式。</li><li>抽取症狀或情境牌，閱讀卡面並想像角色正在面對的困難。</li><li>選擇支持牌，說明為什麼想提供這樣的協助。</li><li>由帶領者邀請大家分享感受，整理不同回應可能帶來的影響。</li></ol><p class="rule-note">每個情境的討論時間可依團體狀態調整。</p></div></section>
+        <section class="rule-step"><span class="step-number">03</span><div><h4>獲勝方式</h4><p>模式 B 不以競爭分數為主要目標；當團體完成指定情境、每位參與者都有機會分享，並一起整理可以帶回生活的陪伴行動，就完成這次體驗。</p><p class="rule-note">若正式版本設有活動任務或完成條件，將於說明書中補充。</p></div></section>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="game-next section wrap" aria-labelledby="next-title">
+  <div><p class="eyebrow small">準備好開始了嗎？</p><h2 id="next-title">先認識卡牌，再挑選你的遊玩方式。</h2></div>
+  <a class="button primary" href="cards.html">查看卡牌介紹 <span aria-hidden="true">↗</span></a>
+</section>
+</main>
+<footer class="wrap"><span>失智同理卡牌｜認識・理解・陪伴</span><p>本遊戲以議題認識與同理討論為目的，遊戲情境不代表每一位失智者的經驗。</p><a href="#main">回到頂端 ↑</a></footer>
+</body>
+</html>
