@@ -64,6 +64,8 @@ function openModal(card, trigger) {
   modalTrigger = trigger;
   modalStage.replaceChildren(face.cloneNode(true));
   const modalFace = modalStage.querySelector('.card-face');
+  const modalImage = modalFace.querySelector('.card-illustration img');
+  if (modalImage?.dataset.full) modalImage.src = modalImage.dataset.full;
   modalType.textContent = card.dataset.type === 'support' ? '支持牌・Support' : '症狀牌・Situation';
   modalTitle.textContent = face.querySelector('strong').textContent;
   modalDescription.textContent = info.querySelector('p').textContent;
@@ -144,3 +146,4 @@ modalStage.addEventListener('pointercancel', () => {
 });
 
 updateResults();
+
