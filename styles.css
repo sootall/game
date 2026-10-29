@@ -44,3 +44,10 @@
 
 /* Homepage previews use the same full card artwork as the card library. */
 .support-card img.card-art{height:auto;aspect-ratio:1116 / 1559;object-fit:contain;border-radius:8px}
+
+/* Homepage cards open the shared card-library dialog. */
+.home-card-trigger{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-align:center;cursor:pointer}
+.home-card-trigger:focus-visible{outline:3px solid #795717;outline-offset:9px;border-radius:8px}
+.home-card-title{display:block;margin-top:12px;font-size:24px;font-weight:900;line-height:1.45}
+.home-card-caption{display:block;margin-bottom:25px;font-size:16px;line-height:1.8}
+.modal-dialog{max-height:calc(100dvh - 44px);overflow-y:auto}

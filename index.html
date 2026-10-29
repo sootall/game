@@ -8,6 +8,7 @@
 <link rel="icon" href="assets/sun.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
+<script src="cards.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">跳至主要內容</a>
@@ -28,13 +29,47 @@
 <div class="benefit-strip"><div class="wrap benefits"><span><svg><use href="#sprout"/></svg>日常情境</span><span><svg><use href="#heart"/></svg>雙模式體驗</span><span><svg><use href="#chat"/></svg>一起討論與分享</span></div></div>
 <section class="story wrap section" aria-labelledby="story-title"><div><p class="eyebrow small">關於這場體驗</p><h2 id="story-title">原本熟悉的小事，<br>也可能變得不容易。</h2></div><div class="story-text"><p>出門搭車、採買、與人聊天，都是我們熟悉的日常。在這副卡牌裡，你將帶著有限的能量完成生活任務，遇見不同的困難，也尋找能讓自己繼續前進的支持。</p><p>從「為什麼做不到？」到「我可以怎麼陪伴？」，我們希望讓理解從遊戲裡發生，讓討論延伸到生活中。</p></div></section>
 <section class="modes section" id="modes" aria-labelledby="modes-title"><div class="wrap"><div class="section-heading"><p class="eyebrow small">一副卡牌，兩種體驗</p><h2 id="modes-title">找到適合你的遊玩方式</h2><p>和朋友一起探索，也能在帶領者的引導下，開啟更深入的對話。</p></div><div class="mode-grid"><article class="mode-card"><div class="mode-title"><span class="badge">A</span><h3>日常任務挑戰</h3></div><svg class="mode-illustration"><use href="#bus"/></svg><p class="mode-tag">自主遊玩・一起想辦法</p><p>在有限的能量下，安排交通、生活、購物與社交任務。面對症狀牌帶來的限制，運用支持牌尋找下一步。</p><ul><li>從日常任務感受不同的處境</li><li>思考如何分配手上的資源</li><li>交流自己的選擇與感受</li></ul><p class="for-who">適合：朋友聚會、一般桌遊體驗</p></article><article class="mode-card"><div class="mode-title"><span class="badge peach">B</span><h3>引導同理體驗</h3></div><svg class="mode-illustration"><use href="#chat"/></svg><p class="mode-tag">情境討論・練習回應</p><p>由帶領者搭配情境與引導指南，邀請玩家透過角色扮演，思考行為背後的感受，討論可以提供什麼支持。</p><ul><li>抽取症狀牌，進入生活情境</li><li>選擇支持牌，分享選擇理由</li><li>在引導下反思與交流</li></ul><p class="for-who">適合：學校、社區與工作坊活動</p></article></div></div></section>
-<section id="cards" class="cards-section wrap section" aria-labelledby="cards-title"><div class="section-heading"><p class="eyebrow small">先認識三張支持牌</p><h2 id="cards-title">小小的支持，也能帶來改變</h2><p>卡牌連結遊戲中的選擇與日常情境。點開卡片，看看它想傳達的概念。</p></div><div class="card-grid">
-<article class="support-card sage"><div class="card-top"><span>支持牌</span><span>01</span></div><h3>便條提醒</h3><img class="card-art" src="assets/cards/support-01.png" alt="便條提醒正式卡牌" loading="lazy" decoding="async"><p>把重要的事，<br>留在看得見的地方。</p><details><summary>看看卡牌概念 <span aria-hidden="true">＋</span></summary><div class="card-detail">這張牌以「把資訊寫下來」為概念，讓玩家思考：當記憶變得吃力時，身邊可以增加哪些提示？<strong>一起想想</strong>如果今天要出門，你會在便條上寫下什麼？</div></details></article>
-<article class="support-card yellow"><div class="card-top"><span>支持牌</span><span>02</span></div><h3>固定位置</h3><img class="card-art" src="assets/cards/support-02.png" alt="固定位置正式卡牌" loading="lazy" decoding="async"><p>讓常用的小物，<br>都有熟悉的家。</p><details><summary>看看卡牌概念 <span aria-hidden="true">＋</span></summary><div class="card-detail">這張牌以「物品固定收納」為概念，讓玩家思考：鑰匙、錢包等常用物品，可以如何安排在生活空間中？<strong>一起想想</strong>你會把出門需要的東西，放在什麼地方？</div></details></article>
-<article class="support-card pink"><div class="card-top"><span>支持牌</span><span>03</span></div><h3>陪伴協助</h3><img class="card-art" src="assets/cards/support-10.png" alt="陪伴協助正式卡牌" loading="lazy" decoding="async"><p>遇見困難時，<br>我們可以一起想辦法。</p><details><summary>看看卡牌概念 <span aria-hidden="true">＋</span></summary><div class="card-detail">這張牌以「熟悉的人陪伴與協助」為概念，邀請玩家思考如何一起面對困難，而不只要求對方獨自完成。<strong>一起想想</strong>比起催促，你想用哪一句話開始陪伴？</div></details></article>
+<section id="cards" class="cards-section wrap section" aria-labelledby="cards-title"><div class="section-heading"><p class="eyebrow small">先認識三張支持牌</p><h2 id="cards-title">小小的支持，也能帶來改變</h2><p>卡牌連結遊戲中的選擇與日常情境。點擊卡牌，查看放大牌面與完整介紹。</p></div><div class="card-grid" id="home-support-cards">
+<article class="support-card deck-card sage" data-type="support">
+<button class="home-card-trigger" type="button" aria-label="查看支持牌：便條提醒" aria-haspopup="dialog" aria-controls="card-modal"><div class="card-top"><span>支持牌</span><span>01</span></div><img class="card-art" src="assets/cards/support-01.png" alt="便條提醒正式卡牌" loading="lazy" decoding="async"><span class="home-card-caption">把重要的事，<br>留在看得見的地方。</span></button>
+<template>
+          <button class="card-face sage" type="button" aria-label="查看支持牌：便條提醒">
+            <span class="card-top"><b>支持牌</b><i>01</i></span><span class="card-illustration note-art"><img src="assets/cards/support-01.png" alt="" loading="lazy"></span><strong>便條提醒</strong><small>把重要的事，留在看得見的地方。</small><span class="card-tag">社交</span>
+          </button>
+          <div class="card-info"><p>把行程、地址或提醒寫下來，讓需要記住的事有一個可靠的落腳處。</p><b>理解提示：提示不是催促，而是一起把事情變得容易。</b></div>
+        </template>
+</article>
+<article class="support-card deck-card yellow" data-type="support">
+<button class="home-card-trigger" type="button" aria-label="查看支持牌：固定位置" aria-haspopup="dialog" aria-controls="card-modal"><div class="card-top"><span>支持牌</span><span>02</span></div><img class="card-art" src="assets/cards/support-02.png" alt="固定位置正式卡牌" loading="lazy" decoding="async"><span class="home-card-caption">讓常用的小物，<br>都有熟悉的家。</span></button>
+<template>
+          <button class="card-face yellow" type="button" aria-label="查看支持牌：固定位置">
+            <span class="card-top"><b>支持牌</b><i>02</i></span><span class="card-illustration home-art"><img src="assets/cards/support-02.png" alt="" loading="lazy"></span><strong>固定位置</strong><small>讓常用的小物，都有熟悉的家。</small><span class="card-tag">生活</span>
+          </button>
+          <div class="card-info"><p>把鑰匙、錢包等常用物品放在固定位置，降低尋找與重新判斷的負擔。</p><b>理解提示：熟悉的環境，能替記憶保留一點力氣。</b></div>
+        </template>
+</article>
+<article class="support-card deck-card pink" data-type="support">
+<button class="home-card-trigger" type="button" aria-label="查看支持牌：陪伴協助" aria-haspopup="dialog" aria-controls="card-modal"><div class="card-top"><span>支持牌</span><span>03</span></div><img class="card-art" src="assets/cards/support-10.png" alt="陪伴協助正式卡牌" loading="lazy" decoding="async"><span class="home-card-caption">遇見困難時，<br>我們可以一起想辦法。</span></button>
+<template>
+          <button class="card-face pink" type="button" aria-label="查看支持牌：陪伴協助">
+            <span class="card-top"><b>支持牌</b><i>10</i></span><span class="card-illustration heart-art"><img src="assets/cards/support-10.png" alt="" loading="lazy"></span><strong>陪伴協助</strong><small>遇見困難時，我們一起想辦法。</small><span class="card-tag">社交</span>
+          </button>
+          <div class="card-info"><p>邀請熟悉的人一起完成任務，先理解需要，再提供剛好的協助。</p><b>理解提示：比起催促，先問一句「我可以陪你嗎？」</b></div>
+        </template>
+</article>
 </div><p class="section-note">以上為卡牌概念介紹；實際效果與數值請以正式遊戲說明書為準。</p></section>
 <section class="journey section" aria-labelledby="journey-title"><div class="wrap"><div class="section-heading"><p class="eyebrow small">把理解帶回生活</p><h2 id="journey-title">從遊戲開始，讓對話繼續</h2></div><ol class="steps"><li><span class="step-number">01</span><h3>走進情境</h3><p>從搭車、購物與聊天等日常，開始你的體驗。</p></li><li><span class="step-number">02</span><h3>做出選擇</h3><p>面對卡牌中的限制，思考可以運用的支持。</p></li><li><span class="step-number">03</span><h3>分享感受</h3><p>聊聊遊戲中的困難，以及你希望得到的回應。</p></li></ol></div></section>
 <section class="closing wrap section"><svg aria-hidden="true"><use href="#heart"/></svg><h2>理解，從一起玩開始。</h2><p>邀請身邊的人，從一張卡牌、一段對話，<br>一起練習多一點耐心、多一點陪伴。</p><a class="button primary" href="#modes">選擇體驗方式 <span aria-hidden="true">↑</span></a></section>
 </main>
 <footer class="wrap"><span>失智同理卡牌｜認識・理解・陪伴</span><p>本遊戲以議題認識與同理討論為目的，遊戲情境不代表每一位失智者的經驗。</p><a href="#main">回到頂端 ↑</a></footer>
+  <div class="card-modal" id="card-modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="關閉卡牌介紹" data-close-modal>×</button>
+      <div class="modal-layout">
+        <div class="modal-stage" id="modal-stage" aria-label="可拖曳觀看角度的卡牌預覽"></div>
+        <div class="modal-copy"><p class="eyebrow small" id="modal-type"></p><h2 id="modal-title"></h2><p id="modal-description"></p><div class="modal-tip"><span>✦</span><p id="modal-tip"></p></div><p class="modal-hint">按住卡片並左右拖動，看看反光變化</p></div>
+      </div>
+    </div>
+  </div>
 </body></html>

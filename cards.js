@@ -1,6 +1,6 @@
 'use strict';
 
-const grid = document.querySelector('#cards-grid');
+const grid = document.querySelector('#cards-grid, #home-support-cards');
 const searchInput = document.querySelector('#card-search');
 const clearSearch = document.querySelector('#clear-search');
 const resultCount = document.querySelector('#result-count');
@@ -15,6 +15,8 @@ const modalTip = document.querySelector('#modal-tip');
 
 let activeFilter = 'all';
 let dragState = null;
+let modalTrigger = null;
+let inertBackground = [];
 
 function cardMatches(card) {
   const query = searchInput.value.trim().toLocaleLowerCase('zh-Hant');
@@ -26,6 +28,7 @@ function cardMatches(card) {
 }
 
 function updateResults() {
+  if (!searchInput || !resultCount || !emptyState || !clearSearch) return;
   const cards = [...grid.querySelectorAll('.deck-card')];
   let visible = 0;
   cards.forEach(card => {
@@ -47,16 +50,18 @@ filterButtons.forEach(button => {
     updateResults();
   });
 });
-searchInput.addEventListener('input', updateResults);
-clearSearch.addEventListener('click', () => {
+searchInput?.addEventListener('input', updateResults);
+clearSearch?.addEventListener('click', () => {
   searchInput.value = '';
   searchInput.focus();
   updateResults();
 });
 
-function openModal(card) {
-  const face = card.querySelector('.card-face');
-  const info = card.querySelector('.card-info');
+function openModal(card, trigger) {
+  const source = card.querySelector('template')?.content || card;
+  const face = source.querySelector('.card-face');
+  const info = source.querySelector('.card-info');
+  modalTrigger = trigger;
   modalStage.replaceChildren(face.cloneNode(true));
   const modalFace = modalStage.querySelector('.card-face');
   modalType.textContent = card.dataset.type === 'support' ? '支持牌・Support' : '症狀牌・Situation';
@@ -65,8 +70,13 @@ function openModal(card) {
   modalTip.textContent = info.querySelector('b').textContent.replace(/^理解提示：/, '');
   modal.hidden = false;
   document.body.classList.add('modal-open');
+  inertBackground = [...document.querySelectorAll('body > main, body > footer')].filter(element => !element.inert);
+  inertBackground.forEach(element => { element.inert = true; });
   modal.querySelector('.modal-close').focus();
   modalFace.setAttribute('aria-hidden', 'true');
+  modalFace.setAttribute('tabindex', '-1');
+  modalStage.style.setProperty('--rx', '0deg');
+  modalStage.style.setProperty('--ry', '0deg');
   modalStage.style.setProperty('--shine-x', '0%');
 }
 
@@ -75,17 +85,27 @@ function closeModal() {
   document.body.classList.remove('modal-open');
   modalStage.replaceChildren();
   dragState = null;
+  modalStage.classList.remove('is-dragging');
+  inertBackground.forEach(element => { element.inert = false; });
+  inertBackground = [];
+  modalTrigger?.focus({ preventScroll: true });
+  modalTrigger = null;
 }
 
 grid.addEventListener('click', event => {
-  const face = event.target.closest('.card-face');
-  if (face) openModal(face.closest('.deck-card'));
+  const trigger = event.target.closest('.card-face, .home-card-trigger');
+  if (trigger) openModal(trigger.closest('.deck-card'), trigger);
 });
 modal.addEventListener('click', event => {
   if (event.target.matches('[data-close-modal]')) closeModal();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !modal.hidden) closeModal();
+  if (modal.hidden) return;
+  if (event.key === 'Escape') closeModal();
+  if (event.key === 'Tab') {
+    event.preventDefault();
+    modal.querySelector('.modal-close').focus();
+  }
 });
 
 function moveCard(event) {
