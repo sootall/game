@@ -41,3 +41,6 @@
 
 
 
+
+/* Homepage previews use the same full card artwork as the card library. */
+.support-card img.card-art{height:auto;aspect-ratio:1116 / 1559;object-fit:contain;border-radius:8px}
