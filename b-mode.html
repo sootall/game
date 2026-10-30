@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>情境解盲｜第一視角認知學習版</title>
+<meta name="description" content="透過四大生活情境、第一視角影片與支持牌互動，練習理解失智者的日常障礙。">
+<link rel="icon" href="assets/sun.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="b-mode.css">
+<script src="b-mode.js" defer></script>
+</head>
+<body class="b-mode-page">
+<a class="skip" href="#main">跳至主要內容</a>
+<main id="main">
+  <section class="b-hero wrap" aria-labelledby="b-title">
+    <p class="eyebrow"><span class="tiny-sun" aria-hidden="true">✦</span> 數位引導網頁・四大情境・互動教學</p>
+    <h1 id="b-title">情境解盲</h1>
+    <p class="b-hero-sub">用一分鐘，走進他眼中的日常。</p>
+    <p class="b-hero-lede">選一個生活情境，先看見困難，再練習用環境支持與有效工具，陪伴對方度過眼前的難關。</p>
+    <div class="b-hero-doodle" aria-hidden="true"><span>☁</span><span>✿</span><span>✦</span></div>
+  </section>
+
+  <section class="b-start-section section" aria-labelledby="scenario-heading">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow small">Step 1・選擇情境</p>
+        <h2 id="scenario-heading">你想先走進哪一段日常？</h2>
+        <p>每個情境都會帶你完成一次「看見 → 思考 → 解盲 → 行動」的練習。</p>
+      </div>
+      <div class="b-scenario-picker" role="tablist" aria-label="選擇生活情境">
+        <button class="b-scenario-card is-active" type="button" role="tab" aria-selected="true" data-scenario="transport"><span class="b-scenario-icon">🚌</span><strong>外出交通篇</strong><small>路線、車票與迷路</small></button>
+        <button class="b-scenario-card" type="button" role="tab" aria-selected="false" data-scenario="social"><span class="b-scenario-icon">👥</span><strong>人際社交篇</strong><small>名字、情緒與互動</small></button>
+        <button class="b-scenario-card" type="button" role="tab" aria-selected="false" data-scenario="home"><span class="b-scenario-icon">🏠</span><strong>居家生活篇</strong><small>物品、記憶與熟悉感</small></button>
+        <button class="b-scenario-card" type="button" role="tab" aria-selected="false" data-scenario="shop"><span class="b-scenario-icon">🛒</span><strong>超商購物篇</strong><small>時間、判斷與採買</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-experience-section section" aria-labelledby="experience-heading">
+    <div class="wrap">
+      <div class="b-progress" aria-label="互動進度"><span class="is-current">1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span></div>
+      <div class="b-scenario-head"><span class="b-current-icon" aria-hidden="true">🚌</span><div><p class="eyebrow small">目前情境</p><h2 id="experience-heading">外出交通篇</h2><p id="scenario-summary">視空間辨識、近期記憶與方向感同時卡住時，熟悉的出門路線也可能變得陌生。</p></div></div>
+
+      <div class="b-stage-card" id="stage-video">
+        <div class="b-stage-media b-stage-media-video" aria-label="外出交通篇第一視角情境影片"><iframe src="https://www.youtube.com/embed/6k_PMNWDBLY" title="外出交通篇第一視角情境影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a class="video-fallback-link" href="https://youtube.com/shorts/6k_PMNWDBLY" target="_blank" rel="noopener">在 YouTube 開啟影片 ↗</a></div>
+        <div class="b-stage-copy"><span class="stage-label">先看見</span><h3>如果熟悉的路突然不熟悉了？</h3><p id="scene-prompt">請先觀察畫面裡的線索：路線圖、車票與周圍的方向感，哪些地方讓人感到混亂或不安？</p><div class="b-life-explain"><b>生活化解說</b><span id="scene-metaphor">像是大腦的導航暫時失靈，不是故意亂走。</span></div><button class="button primary b-next" type="button" data-next="think">看完了，進入思考 <span aria-hidden="true">→</span></button></div>
+      </div>
+
+      <div class="b-stage-card b-think-card" id="stage-think" hidden>
+        <div class="b-think-copy"><span class="stage-label">Step 2・情境換位</span><h3>如果你是陪伴者，會先做什麼？</h3><p id="think-question">看完影片後請想一想：當長輩突然迷路或走錯方向，我們的第一反應是否容易責怪他「沒看路」或「亂跑」？</p><div class="timer-box" aria-live="polite"><span class="timer-icon">⏱</span><strong id="timer">01:00</strong><small>留一分鐘想一想，再選一張最想先使用的支持牌。</small></div><div class="choice-heading"><span>請選出一張</span><small id="choice-status">尚未選擇</small></div><div class="support-choices" id="support-choices" role="group" aria-label="支持牌選項"></div><button class="button primary b-next" id="reveal-button" type="button" data-next="reveal" disabled>進入好牌對策 <span aria-hidden="true">→</span></button></div>
+      </div>
+
+      <div class="b-stage-card b-reveal-card" id="stage-reveal" hidden>
+        <div class="b-reveal-intro"><span class="stage-label">Step 3・翻牌解盲</span><h3>這張好牌可以怎麼幫上忙？</h3><p>你選的支持牌，能把眼前的困難變成更容易完成的下一步。</p></div><div class="selected-card-result" id="selected-card-result"></div><button class="button primary b-next" type="button" data-next="summary">我知道了，進入行動總結 <span aria-hidden="true">→</span></button>
+      </div>
+
+      <div class="b-stage-card b-summary-card" id="stage-summary" hidden>
+        <div class="summary-sparkle" aria-hidden="true">✦</div><span class="stage-label">Step 4・總結引導</span><h3>把理解，帶回下一次相遇</h3><p id="summary-text">改變環境配置與溝通方式，遠比要求長輩努力記住更有用。</p><div class="action-note"><b>今天可以試著這樣做</b><p id="summary-action">先陪伴、再提供簡單明確的路線提示；把支持放在容易拿到的地方。</p></div><div class="summary-actions"><button class="button primary" type="button" id="restart-button">再體驗一次 <span aria-hidden="true">↻</span></button><a class="button" href="#scenario-heading">換一個情境 <span aria-hidden="true">↓</span></a></div></div>
+    </div>
+  </section>
+
+</main>
+<footer><div class="wrap"><strong>情境解盲・第一視角認知學習版</strong><p>適合個人自學、課堂教學與社區長照據點工作坊</p></div></footer>
+</body>
+</html>
+
