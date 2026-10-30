@@ -11,7 +11,7 @@ const modalStage = document.querySelector('#modal-stage');
 const modalType = document.querySelector('#modal-type');
 const modalTitle = document.querySelector('#modal-title');
 const modalDescription = document.querySelector('#modal-description');
-const modalTip = document.querySelector('#modal-tip');
+const modalPoints = document.querySelector('#modal-points');
 
 let activeFilter = 'all';
 let dragState = null;
@@ -68,8 +68,13 @@ function openModal(card, trigger) {
   if (modalImage?.dataset.full) modalImage.src = modalImage.dataset.full;
   modalType.textContent = card.dataset.type === 'support' ? '支持牌・Support' : '症狀牌・Situation';
   modalTitle.textContent = face.querySelector('strong').textContent;
-  modalDescription.textContent = info.querySelector('p').textContent;
-  modalTip.textContent = info.querySelector('b').textContent.replace(/^理解提示：/, '');
+  modalDescription.textContent = info.querySelector('.detail-description')?.textContent || '';
+  modalPoints.replaceChildren();
+  [info.querySelector('.detail-context')?.textContent, info.querySelector('.detail-example')?.textContent].filter(Boolean).forEach(text => {
+    const item = document.createElement('li');
+    item.textContent = text;
+    modalPoints.append(item);
+  });
   modal.hidden = false;
   document.body.classList.add('modal-open');
   inertBackground = [...document.querySelectorAll('body > main, body > footer')].filter(element => !element.inert);
@@ -146,4 +151,7 @@ modalStage.addEventListener('pointercancel', () => {
 });
 
 updateResults();
+
+
+
 
